@@ -1,5 +1,5 @@
-var padstring = function addsymbol (name, resultLength, sideleft) {
-	sideleft = sideleft || false;
+var padstring = function addsymbol (name, resultLength, sideRight) {
+	sideRight = sideRight || false;
 	resultLength = resultLength || 10;
 	
 	if (name.length >= resultLength) {
@@ -7,14 +7,14 @@ var padstring = function addsymbol (name, resultLength, sideleft) {
 	}
 	else {
 		var o = '*';
-		sideleft ? name = o + name : name = name + o;
+		sideRight ? name =  name + o : name = o + name;
 		console.log(name);
-		return addsymbol (name,resultLength,sideleft);
+		return addsymbol (name,resultLength,sideRight);
 	}
 }
 	
 var userName = prompt('Введите имя');
 var len = +prompt ('Введите общее количество символов');
-var isLeft = confirm ('Подставляем звездочки до имени?');
-alert('результат = ' + padstring(userName,len,isLeft));
+var isRight = confirm ('Подставляем звездочки после имени?');
+alert('результат = ' + padstring(userName,len,isRight));
 
